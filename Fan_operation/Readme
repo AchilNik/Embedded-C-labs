@@ -1,0 +1,26 @@
+Overview
+
+This laboratory exercise simulates the operation of a fan using the ATmega4808 microcontroller.
+The fan consists of two rotational motions:
+
+Rotation of the blades.
+
+Rotation of the base, allowing the fan to cover a larger area.
+
+Both motions are simulated with Pulse-Width Modulators (PWMs) and are represented using LED indicators.
+
+Functionality
+
+Blade Rotation: Simulated with a PWM signal of period Tl = 1 ms and duty cycle Dl = 60%. LED0 (PORTD PIN0) lights up during the rising edge of the pulse.
+
+Base Rotation: Simulated with a PWM signal of period Tb = 2 ms and duty cycle Db = 40%. LED1 (PORTD PIN1) lights up during the rising edge of the pulse.
+
+Fan Activation: The fan starts when switch 6 on PORTF is pressed:
+
+First press: Blade and base rotation start with the initial PWM periods and duty cycles.
+
+Second press: Blade PWM period is halved and duty cycle set to 50%, base rotation continues unchanged.
+
+Third press: Fan stops, both PWMs stop their operation.
+
+Interrupt Handling: Each PWM has its own ISR. Care is taken to ensure that rising edges of the two PWMs do not occur simultaneously to avoid missing LED pulses.
