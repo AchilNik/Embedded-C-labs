@@ -1,0 +1,44 @@
+Overview
+
+This laboratory exercise simulates the operation of a smart greenhouse using the ATmega4808 microcontroller.
+The system monitors soil moisture and controls watering and ventilation, providing visual feedback with LEDs and allowing user interaction via switches.
+
+Functionality
+
+Sensors and Inputs:
+
+Analog-to-Digital Converter (ADC): Measures soil moisture via a humidity sensor.
+
+Switches: SW5 and SW6 on PORTF allow the user to activate watering or ventilation manually.
+
+LED Indicators:
+
+LED0 (PORTD PIN0): Lights up when soil moisture is below a defined lower threshold → plants need watering.
+
+LED1 (PORTD PIN1): Lights up when soil moisture exceeds the upper threshold → ventilation required.
+
+LED2 (PORTD PIN2): Represents PWM-driven ventilation activity.
+
+Watering Control:
+
+Triggered by SW5 when LED0 is active.
+
+Simulated using a timer/counter, which runs for a period calculated as the difference between the lower threshold and the last ADC value.
+
+After completion, LED0 and the timer turn off, and the system returns to monitoring.
+
+Ventilation Control:
+
+Triggered by SW6 when LED1 is active.
+
+Simulated using a PWM pulse with period T1 = 1 ms and duty cycle D1 = 50%.
+
+LED2 lights up on the rising edge of each PWM pulse.
+
+After four rising edges, LED1 and LED2 turn off, and the system returns to monitoring.
+
+Incorrect Switch Handling:
+
+If the user presses the wrong switch for the active LED, all three LEDs turn on as a warning.
+
+The LEDs turn off stepwise after the user completes the incorrect action.
