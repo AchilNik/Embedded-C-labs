@@ -1,0 +1,18 @@
+Overview
+
+This laboratory exercise simulates the operation of a smart home device that moves autonomously within an empty room.
+The device starts from a corner of the room and its goal is to map the room's perimeter.
+
+Functionality
+
+Obstacle Detection: The device is equipped with sensors to measure distances from obstacles.
+
+Sensor values are read via the Analog-to-Digital Converter (ADC).
+
+If a sensor detects an obstacle below a predefined threshold (any value between 1–254), the device stops and turns left.
+
+If the right sensor indicates no obstacle (value above the threshold), the device moves right.
+
+Room Completion: When the device returns to the starting corner, it stops.
+
+Return Command: If a switch is pressed, the device performs a 180-degree turn and retraces its path back to the starting position.
