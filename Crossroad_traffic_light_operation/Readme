@@ -1,0 +1,22 @@
+Overview
+
+This project simulates the operation of a highway and railway crossing, implemented on the ATmega4808 microcontroller using C.
+The system models the interaction between a major road and a perpendicular railway track, including traffic and pedestrian signals.
+
+Functionality
+
+Main Road Traffic Lights: Controls car traffic on the major road.
+
+Pedestrian Traffic Lights: Lights up only after pressing a push button.
+
+Tram Passage: A tram passes along the railway at regular intervals T1, interrupting normal traffic. During tram passage, the following occurs for a duration T2:
+
+Red light for cars on the main road.
+
+Green light for pedestrians.
+
+Pedestrian Button: When pressed, the pedestrian green light activates along with the car red light for the main road for a duration T2.
+
+Safety Interval: After the pedestrian signal has been activated, a waiting period T3 must elapse before the button can trigger the green light again.
+
+Non-interruptible Timing: If the pedestrian button is pressed while a cycle is already active (due to either a previous press or a tram passage), the ongoing sequence continues uninterrupted until completion.
